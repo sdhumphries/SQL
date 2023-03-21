@@ -1,0 +1,38 @@
+--Create a grocery store database
+
+CREATE TABLE florist (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, aisle INTEGER, color TEXT, fragrance TEXT);
+
+INSERT INTO florist VALUES
+(1, 'Orchid', 15, 4, 'White', 'Mild'),
+(2, 'Violet', 10, 2, 'Purple', 'Mild'),
+(3, 'Tulip', 7, 3, 'Pink', 'Light'),
+(4, 'Tulip', 7, 3, 'White', 'Light'),
+(5, 'Tulip', 7, 3, 'Yellow', 'Light'),
+(6, 'Rose', 12, 4, 'Red', 'Strong'),
+(7, 'Rose', 12, 4, 'Pink', 'Strong'),
+(8, 'Rose', 12, 4, 'White', 'Strong'),
+(9, 'Chrysanthymum', 4, 1, 'Red', 'Mild'),
+(10, 'Chrysanthymum', 4, 1, 'Pink', 'Mild'),
+(11, 'Chrysanthymum', 4, 1, 'White', 'Mild'),
+(12, 'Chrysanthymum', 4, 1, 'Yellow', 'Mild'),
+(13, 'Lily', 10, 2, 'White', 'Mild'),
+(14, 'Dahlia', 7, 2, 'Pink', 'Light'),
+(15, 'Babys_Breath', 2, 1, 'White', 'Mild');
+
+--display the database ordered by price. 
+SELECT * FROM florist ORDER BY price desc;
+
+--what is the avg price of items in aisle 4? 
+SELECT AVG(price) "avg aisle 4 item price"
+FROM florist
+where aisle='4'; 
+
+--what are the 5 items with the strongest fragrance? 
+SELECT item, price, fragrance
+FROM florist
+order by fragrance desc
+limit 5;
+
+--Order by aisle
+SELECT * FROM florist
+order by aisle asc
